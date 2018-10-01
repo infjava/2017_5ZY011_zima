@@ -68,4 +68,11 @@ public class AutomatMHD {
         // nuluj vlozenu ciastku
         this.vlozenaCiastka = 0;
     }
+    
+    /**
+     * Vrati aktualnu trzbu.
+     */
+    public int getTrzba() {
+        return this.trzba;
+    }
 }
