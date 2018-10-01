@@ -75,4 +75,11 @@ public class AutomatMHD {
     public int getTrzba() {
         return this.trzba;
     }
+    
+    /**
+     * Zmen cenu listka, napr. pri zlacnovani/zdrazovani.
+     */
+    public void setCenaListka(int novaCena) {
+        this.cenaListka = novaCena;
+    }
 }
