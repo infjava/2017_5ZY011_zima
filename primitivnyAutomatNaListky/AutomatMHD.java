@@ -64,9 +64,9 @@ public class AutomatMHD {
         System.out.println();
         
         // pripocitaj vlozenu ciastku k trzbe
-        this.trzba = this.trzba + this.vlozenaCiastka;
+        this.trzba = this.trzba + this.cenaListka;
         // nuluj vlozenu ciastku
-        this.vlozenaCiastka = 0;
+        this.vlozenaCiastka = this.vlozenaCiastka - this.cenaListka;
     }
     
     /**
@@ -81,5 +81,10 @@ public class AutomatMHD {
      */
     public void setCenaListka(int novaCena) {
         this.cenaListka = novaCena;
+    }
+    
+    public void vratZostatok() {
+        System.out.format("Vraciam %.2f€%n", this.vlozenaCiastka / 100.0);
+        this.vlozenaCiastka = 0;
     }
 }
