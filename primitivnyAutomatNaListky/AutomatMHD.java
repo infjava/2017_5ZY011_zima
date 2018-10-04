@@ -84,7 +84,22 @@ public class AutomatMHD {
     }
     
     public void vratZostatok() {
-        System.out.format("Vraciam %.2f€%n", this.vlozenaCiastka / 100.0);
+        System.out.println("Vraciam:");
+        System.out.format("%d x 2€%n", this.vlozenaCiastka / 200);
+        this.vlozenaCiastka = this.vlozenaCiastka % 200;
+        System.out.format("%d x 1€%n", this.vlozenaCiastka / 100);
+        this.vlozenaCiastka = this.vlozenaCiastka % 100;
+        System.out.format("%d x 50c%n", this.vlozenaCiastka / 50);
+        this.vlozenaCiastka = this.vlozenaCiastka % 50;
+        System.out.format("%d x 20c%n", this.vlozenaCiastka / 20);
+        this.vlozenaCiastka = this.vlozenaCiastka % 20;
+        System.out.format("%d x 10c%n", this.vlozenaCiastka / 10);
+        this.vlozenaCiastka = this.vlozenaCiastka % 10;
+        System.out.format("%d x 5c%n", this.vlozenaCiastka / 5);
+        this.vlozenaCiastka = this.vlozenaCiastka % 5;
+        System.out.format("%d x 2c%n", this.vlozenaCiastka / 2);
+        this.vlozenaCiastka = this.vlozenaCiastka % 2;
+        System.out.format("%d x 1c%n", this.vlozenaCiastka);
         this.vlozenaCiastka = 0;
     }
 }
