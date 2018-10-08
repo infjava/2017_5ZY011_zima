@@ -7,12 +7,14 @@
  */
 public class Kalkulacka {
     private int aktualnyVysledok;
+    private int pamat;
     
     /**
      * Constructor for objects of class Kalkulacka
      */
     public Kalkulacka() {
         this.aktualnyVysledok = 0;
+        this.pamat = 0;
     }
     
     public void scitaj(int operand) {
@@ -37,5 +39,21 @@ public class Kalkulacka {
     
     public int getVysledok() {
         return this.aktualnyVysledok;
+    }
+    
+    public void ms() {
+        this.pamat = this.aktualnyVysledok;
+    }
+    
+    public void mr() {
+        this.aktualnyVysledok = this.pamat;
+    }
+    
+    public void mc() {
+        this.pamat = 0;
+    }
+    
+    public void mPlus() {
+        this.pamat += this.aktualnyVysledok;
     }
 }
