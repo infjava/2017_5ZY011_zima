@@ -8,6 +8,7 @@
 public class Kalkulacka {
     private int aktualnyVysledok;
     private int pamat;
+    private int pocetStlaceniMrc;
     
     /**
      * Constructor for objects of class Kalkulacka
@@ -15,6 +16,7 @@ public class Kalkulacka {
     public Kalkulacka() {
         this.aktualnyVysledok = 0;
         this.pamat = 0;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void scitaj(int operand) {
@@ -58,7 +60,10 @@ public class Kalkulacka {
     }
     
     public void mrc() {
-        if (this.aktualnyVysledok != this.pamat) {
+        //this.pocetStlaceniMrc = this.pocetStlaceniMrc + 1;
+        //this.pocetStlaceniMrc += 1;
+        this.pocetStlaceniMrc++;
+        if (this.pocetStlaceniMrc == 1) {
             // pri prvom stlaceni mrc
             this.aktualnyVysledok = this.pamat;
         } else {
