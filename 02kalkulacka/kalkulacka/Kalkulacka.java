@@ -56,4 +56,14 @@ public class Kalkulacka {
     public void mPlus() {
         this.pamat += this.aktualnyVysledok;
     }
+    
+    public void mrc() {
+        if (this.aktualnyVysledok != this.pamat) {
+            // pri prvom stlaceni mrc
+            this.aktualnyVysledok = this.pamat;
+        } else {
+            // pri druhom stlaceni mrc
+            this.pamat = 0;
+        }
+    }
 }
