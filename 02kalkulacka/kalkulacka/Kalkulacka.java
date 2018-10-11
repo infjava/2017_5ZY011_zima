@@ -63,7 +63,7 @@ public class Kalkulacka {
         //this.pocetStlaceniMrc = this.pocetStlaceniMrc + 1;
         //this.pocetStlaceniMrc += 1;
         this.pocetStlaceniMrc++;
-        if (this.pocetStlaceniMrc == 1) {
+        if (this.pocetStlaceniMrc % 2 == 1) {
             // pri prvom stlaceni mrc
             this.aktualnyVysledok = this.pamat;
         } else {
