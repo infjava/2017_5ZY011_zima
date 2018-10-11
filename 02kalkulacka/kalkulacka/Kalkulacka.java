@@ -22,21 +22,25 @@ public class Kalkulacka {
     public void scitaj(int operand) {
         //this.aktualnyVysledok = this.aktualnyVysledok + operand;
         this.aktualnyVysledok += operand;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void odcitaj(int operand) {
         //this.aktualnyVysledok = this.aktualnyVysledok - operand;
         this.aktualnyVysledok -= operand;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void vynasob(int operand) {
         //this.aktualnyVysledok = this.aktualnyVysledok * operand;
         this.aktualnyVysledok *= operand;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void vydel(int operand) {
         //this.aktualnyVysledok = this.aktualnyVysledok / operand;
         this.aktualnyVysledok /= operand;
+        this.pocetStlaceniMrc = 0;
     }
     
     public int getVysledok() {
@@ -45,18 +49,22 @@ public class Kalkulacka {
     
     public void ms() {
         this.pamat = this.aktualnyVysledok;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void mr() {
         this.aktualnyVysledok = this.pamat;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void mc() {
         this.pamat = 0;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void mPlus() {
         this.pamat += this.aktualnyVysledok;
+        this.pocetStlaceniMrc = 0;
     }
     
     public void mrc() {
