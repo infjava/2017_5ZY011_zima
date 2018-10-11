@@ -9,6 +9,7 @@ public class Kalkulacka {
     private int aktualnyVysledok;
     private int pamat;
     private int pocetStlaceniMrc;
+    private int operand;
     
     /**
      * Constructor for objects of class Kalkulacka
@@ -17,29 +18,34 @@ public class Kalkulacka {
         this.aktualnyVysledok = 0;
         this.pamat = 0;
         this.pocetStlaceniMrc = 0;
+        this.operand = 0;
     }
     
-    public void scitaj(int operand) {
+    public void setOperand(int operand) {
+        this.operand = operand;
+    }
+    
+    public void scitaj() {
         //this.aktualnyVysledok = this.aktualnyVysledok + operand;
-        this.aktualnyVysledok += operand;
+        this.aktualnyVysledok += this.operand;
         this.pocetStlaceniMrc = 0;
     }
     
-    public void odcitaj(int operand) {
+    public void odcitaj() {
         //this.aktualnyVysledok = this.aktualnyVysledok - operand;
-        this.aktualnyVysledok -= operand;
+        this.aktualnyVysledok -= this.operand;
         this.pocetStlaceniMrc = 0;
     }
     
-    public void vynasob(int operand) {
+    public void vynasob() {
         //this.aktualnyVysledok = this.aktualnyVysledok * operand;
-        this.aktualnyVysledok *= operand;
+        this.aktualnyVysledok *= this.operand;
         this.pocetStlaceniMrc = 0;
     }
     
-    public void vydel(int operand) {
+    public void vydel() {
         //this.aktualnyVysledok = this.aktualnyVysledok / operand;
-        this.aktualnyVysledok /= operand;
+        this.aktualnyVysledok /= this.operand;
         this.pocetStlaceniMrc = 0;
     }
     
@@ -53,7 +59,7 @@ public class Kalkulacka {
     }
     
     public void mr() {
-        this.aktualnyVysledok = this.pamat;
+        this.operand = this.pamat;
         this.pocetStlaceniMrc = 0;
     }
     
@@ -73,7 +79,7 @@ public class Kalkulacka {
         this.pocetStlaceniMrc++;
         if (this.pocetStlaceniMrc % 2 == 1) {
             // pri prvom stlaceni mrc
-            this.aktualnyVysledok = this.pamat;
+            this.operand = this.pamat;
         } else {
             // pri druhom stlaceni mrc
             this.pamat = 0;
