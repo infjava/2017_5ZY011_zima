@@ -11,6 +11,7 @@ public class Kalkulacka {
     private int pocetStlaceniMrc;
     private int operand;
     private char operator;
+    private boolean naposledyBoloRovnaSa;
     
     /**
      * Constructor for objects of class Kalkulacka
@@ -21,6 +22,7 @@ public class Kalkulacka {
         this.pocetStlaceniMrc = 0;
         this.operand = 0;
         this.operator = '+';
+        this.naposledyBoloRovnaSa = false;
     }
     
     public void setOperand(int operand) {
@@ -28,6 +30,12 @@ public class Kalkulacka {
     }
     
     public void vykonaj(char operator) {
+        if (this.naposledyBoloRovnaSa) {
+            if (operator != '=') {
+                this.operator = '=';
+            }
+        }
+        
         switch (this.operator) {
             case '+':
                 this.aktualnyVysledok = this.aktualnyVysledok + this.operand;
@@ -47,8 +55,11 @@ public class Kalkulacka {
         }
         
         this.pocetStlaceniMrc = 0;
-        if (operator != '=') {
+        if (operator == '=') {
+            this.naposledyBoloRovnaSa = true;
+        } else {
             this.operator = operator;
+            this.naposledyBoloRovnaSa = false;
         }
     }
     
