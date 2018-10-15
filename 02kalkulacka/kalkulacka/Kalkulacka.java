@@ -47,7 +47,9 @@ public class Kalkulacka {
         }
         
         this.pocetStlaceniMrc = 0;
-        this.operator = operator;
+        if (operator != '=') {
+            this.operator = operator;
+        }
     }
     
     public int getVysledok() {
