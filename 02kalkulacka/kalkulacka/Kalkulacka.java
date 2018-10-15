@@ -27,7 +27,7 @@ public class Kalkulacka {
         this.operand = operand;
     }
     
-    public void scitaj() {
+    public void vykonaj(char operator) {
         switch (this.operator) {
             case '+':
                 this.aktualnyVysledok = this.aktualnyVysledok + this.operand;
@@ -44,87 +44,7 @@ public class Kalkulacka {
         }
         
         this.pocetStlaceniMrc = 0;
-        this.operator = '+';
-    }
-    
-    public void odcitaj() {
-        switch (this.operator) {
-            case '+':
-                this.aktualnyVysledok = this.aktualnyVysledok + this.operand;
-                break;
-            case '-':
-                this.aktualnyVysledok = this.aktualnyVysledok - this.operand;
-                break;
-            case '*':
-                this.aktualnyVysledok = this.aktualnyVysledok * this.operand;
-                break;
-            case '/':
-                this.aktualnyVysledok = this.aktualnyVysledok / this.operand;
-                break;
-        }
-        
-        this.pocetStlaceniMrc = 0;
-        this.operator = '-';
-    }
-    
-    public void vynasob() {
-        switch (this.operator) {
-            case '+':
-                this.aktualnyVysledok = this.aktualnyVysledok + this.operand;
-                break;
-            case '-':
-                this.aktualnyVysledok = this.aktualnyVysledok - this.operand;
-                break;
-            case '*':
-                this.aktualnyVysledok = this.aktualnyVysledok * this.operand;
-                break;
-            case '/':
-                this.aktualnyVysledok = this.aktualnyVysledok / this.operand;
-                break;
-        }
-        
-        this.pocetStlaceniMrc = 0;
-        this.operator = '*';
-    }
-    
-    public void vydel() {
-        switch (this.operator) {
-            case '+':
-                this.aktualnyVysledok = this.aktualnyVysledok + this.operand;
-                break;
-            case '-':
-                this.aktualnyVysledok = this.aktualnyVysledok - this.operand;
-                break;
-            case '*':
-                this.aktualnyVysledok = this.aktualnyVysledok * this.operand;
-                break;
-            case '/':
-                this.aktualnyVysledok = this.aktualnyVysledok / this.operand;
-                break;
-        }
-        
-        this.pocetStlaceniMrc = 0;
-        this.operator = '/';
-    }
-    
-    public void rovnaSa() {
-        switch (this.operator) {
-            case '+':
-                this.aktualnyVysledok = this.aktualnyVysledok + this.operand;
-                break;
-            case '-':
-                this.aktualnyVysledok = this.aktualnyVysledok - this.operand;
-                break;
-            case '*':
-                this.aktualnyVysledok = this.aktualnyVysledok * this.operand;
-                break;
-            case '/':
-                this.aktualnyVysledok = this.aktualnyVysledok / this.operand;
-                break;
-        }
-        
-        this.pocetStlaceniMrc = 0;
-        this.operator = '=';
+        this.operator = operator;
     }
     
     public int getVysledok() {
