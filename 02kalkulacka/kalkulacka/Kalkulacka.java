@@ -41,6 +41,9 @@ public class Kalkulacka {
             case '/':
                 this.aktualnyVysledok = this.aktualnyVysledok / this.operand;
                 break;
+            case '%':
+                this.aktualnyVysledok = this.aktualnyVysledok % this.operand;
+                break;
         }
         
         this.pocetStlaceniMrc = 0;
