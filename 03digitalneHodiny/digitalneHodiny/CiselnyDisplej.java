@@ -28,6 +28,10 @@ public class CiselnyDisplej {
         return this.hodnota;
     }
     
+    public int getMaximalnaHodnota() {
+        return this.maximalnaHodnota;
+    }
+    
     /**
      * Nastavi novu hodnotu ciselneho displeja vo forme celeho cisla typu int.
      * Kontroluje platnost zadavaneho cisla. V pripade, ze je mimo rozsah,

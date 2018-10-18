@@ -12,9 +12,21 @@ public class DigitalneHodiny {
      * polnoci (00:00).
      */
     public DigitalneHodiny() {
-        this.hodiny = new CiselnyDisplej(1, 12, 12);
+        this.hodiny = new CiselnyDisplej(0, 23, 0);
         this.minuty = new CiselnyDisplej(0, 59, 0);
         this.sekundy = new CiselnyDisplej(0, 59, 0);
+    }
+    
+    public void prepni12Alebo24() {
+        if (this.hodiny.getMaximalnaHodnota() == 23) {
+            int noveHodiny = this.hodiny.getHodnota() % 12;
+            if (noveHodiny == 0) {
+                noveHodiny = 12;
+            }
+            this.hodiny = new CiselnyDisplej(1, 12, noveHodiny);
+        } else {
+            this.hodiny = new CiselnyDisplej(0, 23, this.hodiny.getHodnota());
+        }
     }
     
     /**
