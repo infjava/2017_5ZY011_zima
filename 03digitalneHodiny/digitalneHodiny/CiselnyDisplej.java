@@ -4,7 +4,7 @@
  * cisla do tvaru dvojcifernej hodnoty.
  */
 public class CiselnyDisplej {
-    private int hornaHranica;
+    private int maximalnaHodnota;
     private int hodnota;
     
     /**
@@ -14,7 +14,7 @@ public class CiselnyDisplej {
      * displeja nemoze dosiahnut.
      */
     public CiselnyDisplej(int maximalnaHodnota) {
-        this.hornaHranica = maximalnaHodnota + 1;
+        this.maximalnaHodnota = maximalnaHodnota;
         this.hodnota = 0;
     }
     
@@ -35,7 +35,7 @@ public class CiselnyDisplej {
      */
     public void setHodnota(int hodnota) {
         if (hodnota >= 0) {
-            if (hodnota < this.hornaHranica) {
+            if (hodnota <= this.maximalnaHodnota) {
                 this.hodnota = hodnota;
             }
         }
@@ -58,6 +58,6 @@ public class CiselnyDisplej {
      * hranicu, pokracuje znovu od nuly.
      */
     public void krok() {
-        this.hodnota = (this.hodnota + 1) % this.hornaHranica;
+        this.hodnota = (this.hodnota + 1) % (this.maximalnaHodnota + 1);
     }
 }
