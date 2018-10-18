@@ -58,6 +58,10 @@ public class CiselnyDisplej {
      * hranicu, pokracuje znovu od nuly.
      */
     public void krok() {
-        this.hodnota = (this.hodnota + 1) % (this.maximalnaHodnota + 1);
+        if (this.hodnota >= this.maximalnaHodnota) {
+            this.hodnota = 0;
+        } else {
+            this.hodnota++;
+        }
     }
 }
