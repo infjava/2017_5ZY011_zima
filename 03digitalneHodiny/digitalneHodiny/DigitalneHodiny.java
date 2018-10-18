@@ -12,9 +12,9 @@ public class DigitalneHodiny {
      * polnoci (00:00).
      */
     public DigitalneHodiny() {
-        this.hodiny = new CiselnyDisplej(24);
-        this.minuty = new CiselnyDisplej(60);
-        this.sekundy = new CiselnyDisplej(60);
+        this.hodiny = new CiselnyDisplej(23);
+        this.minuty = new CiselnyDisplej(59);
+        this.sekundy = new CiselnyDisplej(59);
     }
     
     /**

@@ -13,8 +13,8 @@ public class CiselnyDisplej {
      * @param pthis.hornaHranica Predstavuje cislo, ktore hodnota ciselneho
      * displeja nemoze dosiahnut.
      */
-    public CiselnyDisplej(int hornaHranica) {
-        this.hornaHranica = hornaHranica;
+    public CiselnyDisplej(int maximalnaHodnota) {
+        this.hornaHranica = maximalnaHodnota + 1;
         this.hodnota = 0;
     }
     
