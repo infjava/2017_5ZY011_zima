@@ -35,7 +35,9 @@ public class Klient {
     }
     
     public void vlozPeniaze(long pocetCentov) {
-        if (pocetCentov > 0) {
+        if (this.banka == null) {
+            System.out.println("Ved nemas ucet!");
+        } else if (pocetCentov > 0) {
             this.stavUctuVCentoch += pocetCentov;
         } else {
             System.out.println("Chod volakam!");
@@ -43,7 +45,9 @@ public class Klient {
     }
     
     public void vyberPeniaze(long pocetCentov) {
-        if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
+        if (this.banka == null) {
+            System.out.println("Ved nemas ucet!");
+        } else if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
             this.stavUctuVCentoch -= pocetCentov;
         } else {
             System.out.println("Telo penazi nemas!");
