@@ -19,4 +19,12 @@ public class Klient {
     public void zalozUcet(Banka banka) {
         this.banka = banka;
     }
+    
+    public String getNazovBanky() {
+        if (this.banka == null) {
+            return null;
+        } else {
+            return this.banka.getNazov();
+        }
+    }
 }
