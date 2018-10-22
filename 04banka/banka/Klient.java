@@ -19,7 +19,11 @@ public class Klient {
     }
     
     public void zalozUcet(Banka banka) {
+        if (this.banka != null) {
+            this.banka.znizCelkoveImanie(this.stavUctuVCentoch);
+        }
         this.banka = banka;
+        this.banka.zvysCelkoveImanie(this.stavUctuVCentoch);
     }
     
     public String getNazovBanky() {
