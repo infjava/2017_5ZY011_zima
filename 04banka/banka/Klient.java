@@ -39,6 +39,7 @@ public class Klient {
             System.out.println("Ved nemas ucet!");
         } else if (pocetCentov > 0) {
             this.stavUctuVCentoch += pocetCentov;
+            this.banka.zvysCelkoveImanie(pocetCentov);
         } else {
             System.out.println("Chod volakam!");
         }
@@ -49,6 +50,7 @@ public class Klient {
             System.out.println("Ved nemas ucet!");
         } else if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
             this.stavUctuVCentoch -= pocetCentov;
+            this.banka.znizCelkoveImanie(pocetCentov);
         } else {
             System.out.println("Telo penazi nemas!");
         }
