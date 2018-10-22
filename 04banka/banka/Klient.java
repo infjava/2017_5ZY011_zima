@@ -8,12 +8,14 @@
 public class Klient {
     private String meno;
     private Banka banka;
+    private long stavUctuVCentoch;
     /**
      * Constructor for objects of class Klient
      */
     public Klient(String meno) {
         this.meno = meno;
         this.banka = null;
+        this.stavUctuVCentoch = 0;
     }
     
     public void zalozUcet(Banka banka) {
@@ -25,6 +27,26 @@ public class Klient {
             return null;
         } else {
             return this.banka.getNazov();
+        }
+    }
+    
+    public long getStavUctuVCentoch() {
+        return this.stavUctuVCentoch;
+    }
+    
+    public void vlozPeniaze(long pocetCentov) {
+        if (pocetCentov > 0) {
+            this.stavUctuVCentoch += pocetCentov;
+        } else {
+            System.out.println("Chod volakam!");
+        }
+    }
+    
+    public void vyberPeniaze(long pocetCentov) {
+        if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
+            this.stavUctuVCentoch -= pocetCentov;
+        } else {
+            System.out.println("Telo penazi nemas!");
         }
     }
 }
