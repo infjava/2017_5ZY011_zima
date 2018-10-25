@@ -9,6 +9,7 @@ public class Ucet {
     private long stavUctuVCentoch;
     private Banka banka;
     private Klient klient;
+    private StringBuilder vypis;
     
     /**
      * Constructor for objects of class Ucet
@@ -17,6 +18,8 @@ public class Ucet {
         this.banka = banka;
         this.stavUctuVCentoch = 0;
         this.klient = klient;
+        
+        this.vypis = new StringBuilder();
     }
     
     public String getNazovBanky() {
@@ -35,6 +38,8 @@ public class Ucet {
         if (pocetCentov > 0) {
             this.stavUctuVCentoch += pocetCentov;
             this.banka.zvysCelkoveImanie(pocetCentov);
+            String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
+            this.vypis.append(String.format("Vklad %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
         } else {
             System.out.println("Chod volakam!");
         }
@@ -44,8 +49,23 @@ public class Ucet {
         if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
             this.stavUctuVCentoch -= pocetCentov;
             this.banka.znizCelkoveImanie(pocetCentov);
+            String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
+            this.vypis.append(String.format("Vyber %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
         } else {
             System.out.println("Telo penazi nemas!");
         }
+    }
+    
+    public void vypisVypisZUctu() {
+        System.out.format("Ucet majitela: %s%n", this.klient.getMeno());
+        System.out.print(this.vypis.toString());
+        System.out.println("===============================================");
+        System.out.format("Celkovy zozstatok: %.2f€%n", this.stavUctuVCentoch/100.0);
+        // Ucet majitela: Frantisek Mrkvicka
+        // Vklad 10,00€                       zostatok: 10,00€
+        // Vyber 3,50€                        zostatok: 6,50€
+        // Vklad 1000,00€                     zostatok: 1006,50€
+        // =====================================================
+        // Celkovy zostatok: 1006,50€
     }
 }
