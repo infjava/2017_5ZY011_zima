@@ -8,13 +8,15 @@
 public class Ucet {
     private long stavUctuVCentoch;
     private Banka banka;
+    private Klient klient;
     
     /**
      * Constructor for objects of class Ucet
      */
-    public Ucet(Banka banka) {
+    public Ucet(Banka banka, Klient klient) {
         this.banka = banka;
         this.stavUctuVCentoch = 0;
+        this.klient = klient;
     }
     
     public String getNazovBanky() {
@@ -23,6 +25,10 @@ public class Ucet {
         } else {
             return this.banka.getNazov();
         }
+    }
+    
+    public String getMenoMajitela() {
+        return this.klient.getMeno();
     }
     
     public long getStavUctuVCentoch() {

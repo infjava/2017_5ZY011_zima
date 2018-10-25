@@ -16,6 +16,10 @@ public class Klient {
     }
     
     public Ucet zalozUcet(Banka banka) {
-        return new Ucet(banka);
+        return new Ucet(banka, this);
+    }
+    
+    public String getMeno() {
+        return this.meno;
     }
 }
