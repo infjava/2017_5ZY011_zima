@@ -20,11 +20,7 @@ public class Ucet {
     }
     
     public String getNazovBanky() {
-        if (this.banka == null) {
-            return null;
-        } else {
-            return this.banka.getNazov();
-        }
+        return this.banka.getNazov();
     }
     
     public String getMenoMajitela() {
@@ -36,9 +32,7 @@ public class Ucet {
     }
     
     public void vlozPeniaze(long pocetCentov) {
-        if (this.banka == null) {
-            System.out.println("Ved nemas ucet!");
-        } else if (pocetCentov > 0) {
+        if (pocetCentov > 0) {
             this.stavUctuVCentoch += pocetCentov;
             this.banka.zvysCelkoveImanie(pocetCentov);
         } else {
@@ -47,9 +41,7 @@ public class Ucet {
     }
     
     public void vyberPeniaze(long pocetCentov) {
-        if (this.banka == null) {
-            System.out.println("Ved nemas ucet!");
-        } else if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
+        if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
             this.stavUctuVCentoch -= pocetCentov;
             this.banka.znizCelkoveImanie(pocetCentov);
         } else {
