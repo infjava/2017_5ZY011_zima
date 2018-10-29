@@ -27,9 +27,10 @@ public class Banka {
     
     public String pridelNoveCisloUctu() {
         this.posledneCisloUctu++;
+        long noveCislo = (9883692017l * this.posledneCisloUctu) % 10000000000l;
         return String.format("SK99%04d000000%010d",
             this.kodBanky,
-            this.posledneCisloUctu
+            noveCislo
         );
     }
     
