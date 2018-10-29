@@ -10,6 +10,7 @@ public class Ucet {
     private Banka banka;
     private Klient klient;
     private StringBuilder vypis;
+    private String cisloUctu;
     
     /**
      * Constructor for objects of class Ucet
@@ -20,6 +21,12 @@ public class Ucet {
         this.klient = klient;
         
         this.vypis = new StringBuilder();
+        
+        this.cisloUctu = banka.pridelNoveCisloUctu();
+    }
+    
+    public String getCisloUctu() {
+        return this.cisloUctu;
     }
     
     public String getNazovBanky() {

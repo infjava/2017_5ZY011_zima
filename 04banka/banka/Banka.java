@@ -8,17 +8,29 @@
 public class Banka {
     private String nazov;
     private long celkoveImanieVCentoch;
+    private int kodBanky;
+    private int posledneCisloUctu;
     
     /**
      * Constructor for objects of class Banka
      */
-    public Banka(String nazov) {
+    public Banka(String nazov, int kodBanky) {
         this.nazov = nazov;
         this.celkoveImanieVCentoch = 0;
+        this.kodBanky = kodBanky;
+        this.posledneCisloUctu = 0;
     }
     
     public String getNazov() {
         return this.nazov;
+    }
+    
+    public String pridelNoveCisloUctu() {
+        this.posledneCisloUctu++;
+        return String.format("SK99%04d000000%010d",
+            this.kodBanky,
+            this.posledneCisloUctu
+        );
     }
     
     public long getCelkoveImanieBanky() {
