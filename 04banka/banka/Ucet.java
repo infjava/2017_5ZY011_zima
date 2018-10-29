@@ -43,10 +43,14 @@ public class Ucet {
     
     public void vlozPeniaze(long pocetCentov) {
         if (pocetCentov > 0) {
-            this.stavUctuVCentoch += pocetCentov;
-            this.banka.zvysCelkoveImanie(pocetCentov);
-            String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
-            this.vypis.append(String.format("Vklad %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
+            if (this.klient.odoberPeniazeZPenazenky(pocetCentov)) {
+                this.stavUctuVCentoch += pocetCentov;
+                this.banka.zvysCelkoveImanie(pocetCentov);
+                String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
+                this.vypis.append(String.format("Vklad %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
+            } else {
+                System.out.println("Nemas dost penazi v penazenke");
+            }
         } else {
             System.out.println("Chod volakam!");
         }
@@ -54,6 +58,7 @@ public class Ucet {
     
     public void vyberPeniaze(long pocetCentov) {
         if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
+            this.klient.vlozPeniazeDoPenazenky(pocetCentov);
             this.stavUctuVCentoch -= pocetCentov;
             this.banka.znizCelkoveImanie(pocetCentov);
             String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
