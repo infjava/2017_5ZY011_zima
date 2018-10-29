@@ -1,0 +1,8 @@
+format spravy:
+https://www.nbs.sk/sk/platobne-systemy/iban/iban-slovenska-republika
+
+validator:
+https://www.slsp.sk/sk/kalkulacky/iban-kalkulacka-validator
+
+vypocet kontrolnych cislic:
+https://martinslavkovsky.blog.sme.sk/c/379928/ako-si-vypocitat-iban-pomocou-kalkulacky.html
