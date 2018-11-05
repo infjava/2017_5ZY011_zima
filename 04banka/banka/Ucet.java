@@ -80,13 +80,17 @@ public class Ucet {
     
     public void prevedPeniaze(String cielovyIban, int pocetCentov) {
         if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
-            this.stavUctuVCentoch -= pocetCentov;
-            String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
-            this.vypis.append(String.format("Prevod %-19s zostatok %.2f€ (Cielovy ucet: %s)%n",
-                cisloSEurom, this.stavUctuVCentoch/100.0, cielovyIban));
-            
             Ucet cielovyUcet = banka.getUcet(cielovyIban);
-            cielovyUcet.prijmiPeniaze(this.cisloUctu, pocetCentov);
+            if (cielovyUcet != null) {
+                this.stavUctuVCentoch -= pocetCentov;
+                String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
+                this.vypis.append(String.format("Prevod %-19s zostatok %.2f€ (Cielovy ucet: %s)%n",
+                    cisloSEurom, this.stavUctuVCentoch/100.0, cielovyIban));
+                
+                cielovyUcet.prijmiPeniaze(this.cisloUctu, pocetCentov);
+            } else {
+                System.out.println("Chybne cislo cieloveho uctu");
+            }
         } else {
             System.out.println("Telo penazi nemas!");
         }
