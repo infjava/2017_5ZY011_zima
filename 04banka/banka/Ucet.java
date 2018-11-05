@@ -78,8 +78,31 @@ public class Ucet {
         this.vypis.append(String.format("Uroky %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
     }
     
+    public void prevedPeniaze(String cielovyIban, int pocetCentov) {
+        if (pocetCentov <= this.stavUctuVCentoch && pocetCentov > 0) {
+            this.stavUctuVCentoch -= pocetCentov;
+            String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
+            this.vypis.append(String.format("Prevod %-19s zostatok %.2f€ (Cielovy ucet: %s)%n",
+                cisloSEurom, this.stavUctuVCentoch/100.0, cielovyIban));
+            
+            Ucet cielovyUcet = banka.getUcet(cielovyIban);
+            cielovyUcet.prijmiPeniaze(this.cisloUctu, pocetCentov);
+        } else {
+            System.out.println("Telo penazi nemas!");
+        }
+    }
+    
+    public void prijmiPeniaze(String zdrojovyIban, int pocetCentov) {
+        this.stavUctuVCentoch += pocetCentov;
+        
+        String cisloSEurom = String.format("%.2f€", pocetCentov/100.0);
+        this.vypis.append(String.format("Prijem %-19s zostatok %.2f€ (Zdrojovy ucet: %s)%n",
+            cisloSEurom, this.stavUctuVCentoch/100.0, zdrojovyIban));
+    }
+    
     public void vypisVypisZUctu() {
         System.out.format("Ucet majitela: %s%n", this.klient.getMeno());
+        System.out.format("IBAN: %s%n", this.cisloUctu);
         System.out.print(this.vypis.toString());
         System.out.println("===============================================");
         System.out.format("Celkovy zozstatok: %.2f€%n", this.stavUctuVCentoch/100.0);

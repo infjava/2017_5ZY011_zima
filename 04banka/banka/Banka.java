@@ -29,6 +29,16 @@ public class Banka {
         this.zoznamUctov.add(ucet);
     }
     
+    public Ucet getUcet(String cisloUctu) {
+        for (Ucet ucet : this.zoznamUctov) {
+            if (ucet.getCisloUctu().equals(cisloUctu)) {
+                return ucet;
+            }
+        }
+        
+        return null;
+    }
+    
     public String getNazov() {
         return this.nazov;
     }
