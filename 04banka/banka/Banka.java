@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 /**
  * Write a description of class Banka here.
@@ -11,6 +12,7 @@ public class Banka {
     private long celkoveImanieVCentoch;
     private int kodBanky;
     private int posledneCisloUctu;
+    private ArrayList<Ucet> zoznamUctov;
     
     /**
      * Constructor for objects of class Banka
@@ -20,6 +22,11 @@ public class Banka {
         this.celkoveImanieVCentoch = 0;
         this.kodBanky = kodBanky;
         this.posledneCisloUctu = 0;
+        this.zoznamUctov = new ArrayList<Ucet>();
+    }
+    
+    public void pridajUcet(Ucet ucet) {
+        this.zoznamUctov.add(ucet);
     }
     
     public String getNazov() {
@@ -51,5 +58,12 @@ public class Banka {
     
     public void znizCelkoveImanie(long sumaVCentoch) {
         this.celkoveImanieVCentoch -= sumaVCentoch;
+    }
+    
+    public void zaratajUroky(int percenta) {
+        for (Ucet ucet : this.zoznamUctov) {
+            long uroky = ucet.getStavUctuVCentoch()*percenta/100;
+            ucet.vlozPeniaze(uroky);
+        }
     }
 }

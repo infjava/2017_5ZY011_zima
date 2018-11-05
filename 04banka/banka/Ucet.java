@@ -23,6 +23,7 @@ public class Ucet {
         this.vypis = new StringBuilder();
         
         this.cisloUctu = banka.pridelNoveCisloUctu();
+        banka.pridajUcet(this);
     }
     
     public String getCisloUctu() {
