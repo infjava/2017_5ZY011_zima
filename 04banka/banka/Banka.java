@@ -62,8 +62,7 @@ public class Banka {
     
     public void zaratajUroky(int percenta) {
         for (Ucet ucet : this.zoznamUctov) {
-            long uroky = ucet.getStavUctuVCentoch()*percenta/100;
-            ucet.vlozPeniaze(uroky);
+            ucet.zaratajUroky(percenta);
         }
     }
 }

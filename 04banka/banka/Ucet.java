@@ -69,6 +69,15 @@ public class Ucet {
         }
     }
     
+    public void zaratajUroky(int percenta) {
+        long uroky = this.stavUctuVCentoch * percenta / 100;
+        
+        this.stavUctuVCentoch += uroky;
+        this.banka.zvysCelkoveImanie(uroky);
+        String cisloSEurom = String.format("%.2f€", uroky/100.0);
+        this.vypis.append(String.format("Uroky %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
+    }
+    
     public void vypisVypisZUctu() {
         System.out.format("Ucet majitela: %s%n", this.klient.getMeno());
         System.out.print(this.vypis.toString());
