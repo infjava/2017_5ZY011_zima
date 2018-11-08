@@ -13,6 +13,7 @@ public class Banka {
     private int kodBanky;
     private int posledneCisloUctu;
     private ArrayList<Ucet> zoznamUctov;
+    private ArrayList<TypUctu> zoznamTypovUctov;
     
     /**
      * Constructor for objects of class Banka
@@ -23,6 +24,7 @@ public class Banka {
         this.kodBanky = kodBanky;
         this.posledneCisloUctu = 0;
         this.zoznamUctov = new ArrayList<Ucet>();
+        this.zoznamTypovUctov = new ArrayList<TypUctu>();
     }
     
     public void pridajUcet(Ucet ucet) {
@@ -74,5 +76,19 @@ public class Banka {
         for (Ucet ucet : this.zoznamUctov) {
             ucet.zaratajUroky(percenta);
         }
+    }
+    
+    public void pridajTypUctu(String nazov, int urokVPercentach, int poplatokVCentoch) {
+        this.zoznamTypovUctov.add(new TypUctu(nazov, urokVPercentach, poplatokVCentoch));
+    }
+    
+    public TypUctu getTypUctu(String nazov) {
+        for (TypUctu typ : this.zoznamTypovUctov) {
+            if (typ.getNazov().equals(nazov)) {
+                return typ;
+            }
+        }
+        
+        return null;
     }
 }
