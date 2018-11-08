@@ -16,7 +16,7 @@ public class BankovySystem {
     public Banka zalozBanku(String nazov) {
         // 1. skontroluje nazov => musi byt unikatny
         for (Banka banka : this.zoznamBank) {
-            if (banka.getNazov().equals(nazov)) {
+            if (banka.getNazov().toLowerCase().equals(nazov.toLowerCase())) {
                 System.out.format("Banka '%s' uz existuje%n", nazov);
                 return null;
             }
