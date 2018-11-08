@@ -18,7 +18,12 @@ public class Klient {
     }
     
     public Ucet zalozUcet(Banka banka, String typUctu) {
-        return new Ucet(banka, this, typUctu);
+        if (banka.getTypUctu(typUctu) == null) {
+            System.out.format("Neznamy typ uctu '%s'%n", typUctu);
+            return null;
+        } else {
+            return new Ucet(banka, this, typUctu);
+        }
     }
     
     public String getMeno() {
