@@ -72,9 +72,9 @@ public class Banka {
         this.celkoveImanieVCentoch -= sumaVCentoch;
     }
     
-    public void zaratajUroky(int percenta) {
+    public void zaratajUrokyAPoplatky() {
         for (Ucet ucet : this.zoznamUctov) {
-            ucet.zaratajUroky(percenta);
+            ucet.zaratajUrokyAPoplatky();
         }
     }
     

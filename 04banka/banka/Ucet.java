@@ -16,7 +16,7 @@ public class Ucet {
     /**
      * Constructor for objects of class Ucet
      */
-    public Ucet(Banka banka, Klient klient, String typUctu) {
+    public Ucet(Banka banka, Klient klient, TypUctu typUctu) {
         this.banka = banka;
         this.stavUctuVCentoch = 0;
         this.klient = klient;
@@ -26,7 +26,7 @@ public class Ucet {
         this.cisloUctu = banka.pridelNoveCisloUctu();
         banka.pridajUcet(this);
         
-        this.typUctu = banka.getTypUctu(typUctu);
+        this.typUctu = typUctu;
     }
     
     public String getCisloUctu() {
@@ -72,13 +72,17 @@ public class Ucet {
         }
     }
     
-    public void zaratajUroky(int percenta) {
-        long uroky = this.stavUctuVCentoch * percenta / 100;
+    public void zaratajUrokyAPoplatky() {
+        long uroky = this.stavUctuVCentoch * this.typUctu.getUrokVPercentach() / 100;
         
         this.stavUctuVCentoch += uroky;
         this.banka.zvysCelkoveImanie(uroky);
         String cisloSEurom = String.format("%.2f€", uroky/100.0);
         this.vypis.append(String.format("Uroky %-20s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
+        
+        this.stavUctuVCentoch -= this.typUctu.getPoplatokVCentoch();
+        cisloSEurom = String.format("%.2f€", this.typUctu.getPoplatokVCentoch()/100.0);
+        this.vypis.append(String.format("Poplatok %-17s zostatok %.2f€%n", cisloSEurom, this.stavUctuVCentoch/100.0));
     }
     
     public void prevedPeniaze(String cielovyIban, int pocetCentov) {
