@@ -17,8 +17,8 @@ public class Klient {
         this.stavPenazenkyVCentoch = 10000;
     }
     
-    public Ucet zalozUcet(Banka banka) {
-        return new Ucet(banka, this);
+    public Ucet zalozUcet(Banka banka, String typUctu) {
+        return new Ucet(banka, this, typUctu);
     }
     
     public String getMeno() {

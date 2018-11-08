@@ -11,11 +11,12 @@ public class Ucet {
     private Klient klient;
     private StringBuilder vypis;
     private String cisloUctu;
+    private TypUctu typUctu;
     
     /**
      * Constructor for objects of class Ucet
      */
-    public Ucet(Banka banka, Klient klient) {
+    public Ucet(Banka banka, Klient klient, String typUctu) {
         this.banka = banka;
         this.stavUctuVCentoch = 0;
         this.klient = klient;
@@ -24,6 +25,8 @@ public class Ucet {
         
         this.cisloUctu = banka.pridelNoveCisloUctu();
         banka.pridajUcet(this);
+        
+        this.typUctu = banka.getTypUctu(typUctu);
     }
     
     public String getCisloUctu() {
@@ -116,5 +119,9 @@ public class Ucet {
         // Vklad 1000,00€                     zostatok: 1006,50€
         // =====================================================
         // Celkovy zostatok: 1006,50€
+    }
+    
+    public TypUctu getTypUctu() {
+        return this.typUctu;
     }
 }
