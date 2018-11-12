@@ -52,7 +52,7 @@ public class Sutaz {
         }
     }
     
-    public boolean hracVyral() {
+    public boolean hracVyhral() {
         for (Dvere aktualne : this.dvere) {
             if (aktualne.jeVyhra()) {
                 return true;
