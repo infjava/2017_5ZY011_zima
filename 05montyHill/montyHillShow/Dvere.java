@@ -48,4 +48,8 @@ public class Dvere {
     public void zrusVyber() {
         this.suVybrane = false;
     }
+    
+    public boolean getSuVybrane() {
+        return this.suVybrane;
+    }
 }
