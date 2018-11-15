@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class Sachovnica {
     private ArrayList<Stvorec> policka;
+    private int sirka;
     
     public Sachovnica(int sirka, int vyska) {
         this.policka = new ArrayList<Stvorec>();
+        this.sirka = sirka;
         
         boolean maBytCierna = true;
         for (int y = vyska - 1; y >= 0; y--) {
@@ -40,6 +42,10 @@ public class Sachovnica {
     }
     
     public Kamen pridajKamen() {
-        return new Kamen();
+        return new Kamen(this);
+    }
+    
+    public int getSirka() {
+        return this.sirka;
     }
 }
