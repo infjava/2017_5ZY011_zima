@@ -1,15 +1,11 @@
+import java.util.ArrayList;
 
-/**
- * Write a description of class Sachovnica here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Sachovnica {
-    /**
-     * Constructor for objects of class Sachovnica
-     */
+    private ArrayList<Stvorec> policka;
+    
     public Sachovnica(int sirka, int vyska) {
+        this.policka = new ArrayList<Stvorec>();
+        
         boolean maBytCierna = true;
         for (int y = vyska - 1; y >= 0; y--) {
             for (int x = 0; x < sirka; x++) {
@@ -22,12 +18,24 @@ public class Sachovnica {
                 } else {
                     policko.zmenFarbu("white");
                 }
-                policko.zobraz();
                 maBytCierna = !maBytCierna;
+                this.policka.add(policko);
             }
             if (sirka % 2 == 0) {
                 maBytCierna = !maBytCierna;
             }
+        }
+    }
+    
+    public void zobraz() {
+        for (Stvorec policko : this.policka) {
+            policko.zobraz();
+        }
+    }
+    
+    public void skry() {
+        for (Stvorec policko : this.policka) {
+            policko.skry();
         }
     }
 }
