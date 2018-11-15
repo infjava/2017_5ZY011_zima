@@ -38,4 +38,8 @@ public class Sachovnica {
             policko.skry();
         }
     }
+    
+    public Kamen pridajKamen() {
+        return new Kamen();
+    }
 }
