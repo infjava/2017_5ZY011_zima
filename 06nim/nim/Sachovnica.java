@@ -15,8 +15,8 @@ public class Sachovnica {
             for (int x = 0; x < sirka; x++) {
                 Stvorec policko = new Stvorec();
                 policko.zmenStranu(20);
-                policko.posunZvisle(20*y);
-                policko.posunVodorovne(20*x);
+                policko.posunZvisle(20 * y - 50);
+                policko.posunVodorovne(20 * x - 60);
                 if (maBytCierna) {
                     policko.zmenFarbu("black");
                 } else {
