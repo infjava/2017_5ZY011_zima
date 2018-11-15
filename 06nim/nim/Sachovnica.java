@@ -11,7 +11,7 @@ public class Sachovnica {
      */
     public Sachovnica(int sirka, int vyska) {
         boolean maBytCierna = true;
-        for (int y = 0; y < vyska; y++) {
+        for (int y = vyska - 1; y >= 0; y--) {
             for (int x = 0; x < sirka; x++) {
                 Stvorec policko = new Stvorec();
                 policko.zmenStranu(20);
