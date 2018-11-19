@@ -4,12 +4,14 @@ public class Sachovnica {
     private ArrayList<Stvorec> policka;
     private ArrayList<Kamen> kamene;
     private int sirka;
+    private int vyska;
     private boolean zobrazena;
     
     public Sachovnica(int sirka, int vyska) {
         this.policka = new ArrayList<Stvorec>();
         this.kamene = new ArrayList<Kamen>();
         this.sirka = sirka;
+        this.vyska = vyska;
         this.zobrazena = false;
         
         boolean maBytCierna = true;
@@ -64,5 +66,9 @@ public class Sachovnica {
     
     public int getSirka() {
         return this.sirka;
+    }
+    
+    public int getVyska() {
+        return this.vyska;
     }
 }
