@@ -6,11 +6,13 @@
  * @version (a version number or a date)
  */
 public class Kamen {
+    private Sachovnica sachovnica;
     private Kruh kruh;
     private int aktualnyStlpec;
     private int aktualnyRiadok;
     
     public Kamen(Sachovnica sachovnica) {
+        this.sachovnica = sachovnica;
         this.kruh = new Kruh();
         this.kruh.zmenFarbu("red");
         this.kruh.zmenPriemer(20);
@@ -29,6 +31,14 @@ public class Kamen {
     }
     
     public void posunNa(int stlpec, int riadok) {
+        if (stlpec < 1 || stlpec > this.sachovnica.getSirka()) {
+            return;
+        }
+        
+        if (riadok < 1 || riadok > this.sachovnica.getVyska()) {
+            return;
+        }
+        
         int posunStlpec = this.aktualnyStlpec - stlpec;
         int posunRiadok = this.aktualnyRiadok - riadok;
         
