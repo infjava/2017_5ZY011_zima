@@ -48,4 +48,12 @@ public class Kamen {
         this.aktualnyStlpec = stlpec;
         this.aktualnyRiadok = riadok;
     }
+    
+    public int getAktualnyRiadok() {
+        return this.aktualnyRiadok;
+    }
+    
+    public int getAktualnyStlpec() {
+        return this.aktualnyStlpec;
+    }
 }
