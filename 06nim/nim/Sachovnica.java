@@ -2,10 +2,12 @@ import java.util.ArrayList;
 
 public class Sachovnica {
     private ArrayList<Stvorec> policka;
+    private ArrayList<Kamen> kamene;
     private int sirka;
     
     public Sachovnica(int sirka, int vyska) {
         this.policka = new ArrayList<Stvorec>();
+        this.kamene = new ArrayList<Kamen>();
         this.sirka = sirka;
         
         boolean maBytCierna = true;
@@ -33,16 +35,24 @@ public class Sachovnica {
         for (Stvorec policko : this.policka) {
             policko.zobraz();
         }
+        for (Kamen kamen : this.kamene) {
+            kamen.zobraz();
+        }
     }
     
     public void skry() {
         for (Stvorec policko : this.policka) {
             policko.skry();
         }
+        for (Kamen kamen : this.kamene) {
+            kamen.skry();
+        }
     }
     
     public Kamen pridajKamen() {
-        return new Kamen(this);
+        Kamen novyKamen = new Kamen(this);
+        this.kamene.add(novyKamen);
+        return novyKamen;
     }
     
     public int getSirka() {

@@ -6,15 +6,21 @@
  * @version (a version number or a date)
  */
 public class Kamen {
-    /**
-     * Constructor for objects of class Kamen
-     */
+    private Kruh kruh;
+    
     public Kamen(Sachovnica sachovnica) {
-        Kruh kruh = new Kruh();
-        kruh.zmenFarbu("red");
-        kruh.zmenPriemer(20);
-        kruh.posunZvisle(-60);
-        kruh.posunVodorovne((sachovnica.getSirka() - 1) * 20 - 20);
-        kruh.zobraz();
+        this.kruh = new Kruh();
+        this.kruh.zmenFarbu("red");
+        this.kruh.zmenPriemer(20);
+        this.kruh.posunZvisle(-60);
+        this.kruh.posunVodorovne((sachovnica.getSirka() - 1) * 20 - 20);
+    }
+    
+    public void zobraz() {
+        this.kruh.zobraz();
+    }
+    
+    public void skry() {
+        this.kruh.skry();
     }
 }
