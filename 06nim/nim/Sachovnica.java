@@ -4,11 +4,13 @@ public class Sachovnica {
     private ArrayList<Stvorec> policka;
     private ArrayList<Kamen> kamene;
     private int sirka;
+    private boolean zobrazena;
     
     public Sachovnica(int sirka, int vyska) {
         this.policka = new ArrayList<Stvorec>();
         this.kamene = new ArrayList<Kamen>();
         this.sirka = sirka;
+        this.zobrazena = false;
         
         boolean maBytCierna = true;
         for (int y = vyska - 1; y >= 0; y--) {
@@ -38,6 +40,7 @@ public class Sachovnica {
         for (Kamen kamen : this.kamene) {
             kamen.zobraz();
         }
+        this.zobrazena = true;
     }
     
     public void skry() {
@@ -47,11 +50,15 @@ public class Sachovnica {
         for (Kamen kamen : this.kamene) {
             kamen.skry();
         }
+        this.zobrazena = false;
     }
     
     public Kamen pridajKamen() {
         Kamen novyKamen = new Kamen(this);
         this.kamene.add(novyKamen);
+        if (this.zobrazena) {
+            novyKamen.zobraz();
+        }
         return novyKamen;
     }
     
