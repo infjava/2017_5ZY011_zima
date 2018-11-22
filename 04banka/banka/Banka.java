@@ -14,11 +14,13 @@ public class Banka {
     private int posledneCisloUctu;
     private ArrayList<Ucet> zoznamUctov;
     private ArrayList<TypUctu> zoznamTypovUctov;
+    private BankovySystem bankovySystem;
     
     /**
      * Constructor for objects of class Banka
      */
-    public Banka(String nazov, int kodBanky) {
+    public Banka(BankovySystem bankovySystem, String nazov, int kodBanky) {
+        this.bankovySystem = bankovySystem;
         this.nazov = nazov;
         this.celkoveImanieVCentoch = 0;
         this.kodBanky = kodBanky;
@@ -27,11 +29,19 @@ public class Banka {
         this.zoznamTypovUctov = new ArrayList<TypUctu>();
     }
     
+    public int getKod() {
+        return this.kodBanky;
+    }
+    
     public void pridajUcet(Ucet ucet) {
         this.zoznamUctov.add(ucet);
     }
     
     public Ucet getUcet(String cisloUctu) {
+        if (this.kodBanky != Integer.parseInt(cisloUctu.substring(4, 8))) {
+            return this.bankovySystem.getUcet(cisloUctu);
+        }
+        
         for (Ucet ucet : this.zoznamUctov) {
             if (ucet.getCisloUctu().equals(cisloUctu)) {
                 return ucet;
