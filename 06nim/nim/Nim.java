@@ -10,6 +10,7 @@ public class Nim {
     private Kamen kamen;
     private String[] menaHracov;
     private int poradoveCisloHraca;
+    private String vyherca;
     
     public Nim(int sirka, int vyska, String menoPrveho, String menoDruheho) {
         this.sachovnica = new Sachovnica(sirka, vyska);
@@ -17,10 +18,18 @@ public class Nim {
         this.sachovnica.zobraz();
         this.menaHracov = new String[] { menoPrveho, menoDruheho };
         this.poradoveCisloHraca = 0;
+        this.vyherca = null;
     }
     
     public String getMenoHracaNaTahu() {
+        if (this.vyherca != null) {
+            return null;
+        }
         return this.menaHracov[this.poradoveCisloHraca];
+    }
+    
+    public String getVyherca() {
+        return this.vyherca;
     }
     
     public void tahDole(int pocet) {
@@ -32,6 +41,10 @@ public class Nim {
         int novyStlpec = this.kamen.getAktualnyStlpec();
         
         this.kamen.posunNa(novyStlpec, novyRiadok);
+        
+        if (novyRiadok == 1 && novyStlpec == 1) {
+            this.vyherca = this.getMenoHracaNaTahu();
+        }
         
         this.poradoveCisloHraca = (this.poradoveCisloHraca + 1) % this.menaHracov.length;
     }
@@ -45,6 +58,10 @@ public class Nim {
         int novyStlpec = this.kamen.getAktualnyStlpec() - pocet;
         
         this.kamen.posunNa(novyStlpec, novyRiadok);
+        
+        if (novyRiadok == 1 && novyStlpec == 1) {
+            this.vyherca = this.getMenoHracaNaTahu();
+        }
         
         this.poradoveCisloHraca = (this.poradoveCisloHraca + 1) % this.menaHracov.length;
     }
