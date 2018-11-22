@@ -24,7 +24,7 @@ public class Nim {
     }
     
     public void tahDole(int pocet) {
-        if (pocet < 1) {
+        if (pocet < 1 || pocet >= this.kamen.getAktualnyRiadok()) {
             return;
         }
         
@@ -37,7 +37,7 @@ public class Nim {
     }
     
     public void tahVlavo(int pocet) {
-        if (pocet < 1) {
+        if (pocet < 1 || pocet >= this.kamen.getAktualnyStlpec()) {
             return;
         }
         
