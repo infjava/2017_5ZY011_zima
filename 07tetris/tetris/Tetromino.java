@@ -16,42 +16,42 @@ public class Tetromino {
      */
     public Tetromino(boolean[][] tvar) {
         this.tvar = tvar;
-        poziciaY = 0;
+        this.poziciaY = 0;
         
-        int sirkaTetromina = tvar[0].length;
-        poziciaX = Displej.SIRKA / 2 - 1 - sirkaTetromina / 2;
+        int sirkaTetromina = this.tvar[0].length;
+        this.poziciaX = Displej.SIRKA / 2 - 1 - sirkaTetromina / 2;
         
         this.zobraz();
     }
     
     public void posunVpravo() {
-        if (poziciaX + tvar[0].length == Displej.SIRKA) {
+        if (this.poziciaX + this.tvar[0].length == Displej.SIRKA) {
             return;
         }
         
-        skry();
-        poziciaX++;
-        zobraz();
+        this.skry();
+        this.poziciaX++;
+        this.zobraz();
     }
     
     public void posunVlavo() {
-        if (poziciaX <= 0) {
+        if (this.poziciaX <= 0) {
             return;
         }
         
-        skry();
-        poziciaX--;
-        zobraz();
+        this.skry();
+        this.poziciaX--;
+        this.zobraz();
     }
     
     public void posunDole() {
-        if (poziciaY + tvar.length >= Displej.VYSKA) {
+        if (this.poziciaY + this.tvar.length >= Displej.VYSKA) {
             return;
         }   
         
-        skry();
-        poziciaY++;
-        zobraz();
+        this.skry();
+        this.poziciaY++;
+        this.zobraz();
     }  
     
     public void otoc() {
@@ -76,27 +76,25 @@ public class Tetromino {
         this.zobraz();
     }
     
-    private void zobraz()
-    {
+    private void zobraz() {
         Displej displej = Displej.getDisplej();
         
-        for (int y = 0; y < tvar.length; y++) {
-            for (int x = 0; x < tvar[y].length; x++) {
-                if (tvar[y][x] == true) {
-                    displej.zasviet(poziciaX + x, poziciaY + y);
+        for (int y = 0; y < this.tvar.length; y++) {
+            for (int x = 0; x < this.tvar[y].length; x++) {
+                if (this.tvar[y][x]) {
+                    displej.zasviet(this.poziciaX + x, this.poziciaY + y);
                 }
             }
         }
     }
     
-    private void skry()
-    {
+    private void skry() {
         Displej displej = Displej.getDisplej();
         
-        for (int y = 0; y < tvar.length; y++) {
-            for (int x = 0; x < tvar[y].length; x++) {
-                if (tvar[y][x] == true) {
-                    displej.zhasni(poziciaX + x, poziciaY + y);
+        for (int y = 0; y < this.tvar.length; y++) {
+            for (int x = 0; x < this.tvar[y].length; x++) {
+                if (this.tvar[y][x]) {
+                    displej.zhasni(this.poziciaX + x, this.poziciaY + y);
                 }
             }
         }

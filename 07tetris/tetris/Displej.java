@@ -15,25 +15,25 @@ public class Displej {
     private static Displej displej;
 
     public static Displej getDisplej() {
-        if (displej == null) {
-            displej = new Displej();
+        if (Displej.displej == null) {
+            Displej.displej = new Displej();
         }
         
-        return displej;
+        return Displej.displej;
     }
     
     /**
      * Constructor for objects of class Displej
      */
     private Displej() {        
-        this.mriezka = new Stvorec[VYSKA][SIRKA];
+        this.mriezka = new Stvorec[Displej.VYSKA][Displej.SIRKA];
         
-        for (int y = 0; y < VYSKA ; y++) {
-            for (int x = 0; x < SIRKA; x++) {
+        for (int y = 0; y < Displej.VYSKA ; y++) {
+            for (int x = 0; x < Displej.SIRKA; x++) {
                 Stvorec stvorec = new Stvorec();
-                stvorec.zmenStranu(this.VELKOST);
-                stvorec.posunZvisle((this.VELKOST + 1) * y - 50);
-                stvorec.posunVodorovne((this.VELKOST + 1) * x - 60);
+                stvorec.zmenStranu(Displej.VELKOST);
+                stvorec.posunZvisle((Displej.VELKOST + 1) * y - 50);
+                stvorec.posunVodorovne((Displej.VELKOST + 1) * x - 60);
                 stvorec.zmenFarbu("black");
                 stvorec.zobraz();
                 
@@ -43,7 +43,7 @@ public class Displej {
     }
     
     public void zhasni(int x, int y) {
-        if (x < 0 || y < 0 || x >= SIRKA || y >= VYSKA) {
+        if (x < 0 || y < 0 || x >= Displej.SIRKA || y >= Displej.VYSKA) {
             return;
         }
         
@@ -51,7 +51,7 @@ public class Displej {
     }
     
     public void zasviet(int x, int y) {
-        if (x < 0 || y < 0 || x >= SIRKA || y >= VYSKA) {
+        if (x < 0 || y < 0 || x >= Displej.SIRKA || y >= Displej.VYSKA) {
             return;
         }
         
