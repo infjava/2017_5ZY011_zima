@@ -1,3 +1,4 @@
+import java.util.Random;
 
 /**
  * Write a description of class TovarenNaTetromina here.
@@ -6,11 +7,13 @@
  * @version (a version number or a date)
  */
 public class TovarenNaTetromina {
+    private Random random;
+    
     /**
      * Constructor for objects of class TovarenNaTetromina
      */
     public TovarenNaTetromina() {
-        // initialise instance variables
+        this.random = new Random();
     }
     
     public Tetromino vytvorL() {
@@ -79,5 +82,42 @@ public class TovarenNaTetromina {
                 {true},
             }
         );
+    }
+    
+    public Tetromino vytvorNahodne() {
+        Tetromino vytvorene;
+        
+        switch (this.random.nextInt(7)) {
+            case 0:
+                vytvorene = this.vytvorL();
+                break;
+            case 1:
+                vytvorene = this.vytvorJ();
+                break;
+            case 2:
+                vytvorene = this.vytvorO();
+                break;
+            case 3:
+                vytvorene = this.vytvorZ();
+                break;
+            case 4:
+                vytvorene = this.vytvorS();
+                break;
+            case 5:
+                vytvorene = this.vytvorT();
+                break;
+            case 6:
+                vytvorene = this.vytvorI();
+                break;
+            default:
+                return null;
+        }
+        
+        int pocetOtoceni = this.random.nextInt(4);
+        for (int i = 0; i < pocetOtoceni; i++) {
+            vytvorene.otoc();
+        }
+        
+        return vytvorene;
     }
 }

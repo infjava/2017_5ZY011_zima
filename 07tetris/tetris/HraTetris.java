@@ -6,7 +6,7 @@
  * @version (a version number or a date)
  */
 public class HraTetris {
-    
+    private TovarenNaTetromina tovaren;
     private Tetromino tetromino;
     private int pocetTikov;
     
@@ -14,8 +14,9 @@ public class HraTetris {
      * Constructor for objects of class HraTetris
      */
     public HraTetris() {
-        this.tetromino = new Tetromino(new boolean[][] { {false, true, false},
-                                                         {true, true, true} });
+        this.tovaren = new TovarenNaTetromina();
+        
+        this.tetromino = this.tovaren.vytvorNahodne();
                                                          
         Manazer manazer = new Manazer();
         manazer.spravujObjekt(this);
