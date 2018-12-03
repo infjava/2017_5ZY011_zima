@@ -58,7 +58,7 @@ public class Tetromino {
         int novaSirka = this.tvar.length;
         int novaVyska = this.tvar[0].length;
         
-        if (this.poziciaX + novaSirka >= Displej.SIRKA || this.poziciaY + novaVyska >= Displej.VYSKA) {
+        if (this.poziciaX + novaSirka > Displej.SIRKA || this.poziciaY + novaVyska > Displej.VYSKA) {
             return;
         }
         
