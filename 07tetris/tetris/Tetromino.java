@@ -52,7 +52,29 @@ public class Tetromino {
         skry();
         poziciaY++;
         zobraz();
-    }   
+    }  
+    
+    public void otoc() {
+        this.skry();
+        
+        int novaSirka = this.tvar.length;
+        int novaVyska = this.tvar[0].length;
+        
+        boolean[][] novyTvar = new boolean[novaVyska][novaSirka];
+        
+        for (int stareY = 0; stareY < this.tvar.length; stareY++) {
+            for (int stareX = 0; stareX < this.tvar[0].length; stareX++) {
+                int noveX = novaSirka - 1 - stareY;
+                int noveY = stareX;
+                
+                novyTvar[noveY][noveX] = this.tvar[stareY][stareX];
+            }
+        }
+        
+        this.tvar = novyTvar;
+        
+        this.zobraz();
+    }
     
     private void zobraz()
     {

@@ -21,7 +21,7 @@ public class HraTetris {
     }
   
     public void posunHore() {
-        // TODO: Otocenie tetromina
+        this.tetromino.otoc();
     }
     
     public void posunVlavo() {
