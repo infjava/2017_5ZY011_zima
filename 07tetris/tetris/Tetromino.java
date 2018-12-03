@@ -55,10 +55,14 @@ public class Tetromino {
     }  
     
     public void otoc() {
-        this.skry();
-        
         int novaSirka = this.tvar.length;
         int novaVyska = this.tvar[0].length;
+        
+        if (this.poziciaX + novaSirka >= Displej.SIRKA || this.poziciaY + novaVyska >= Displej.VYSKA) {
+            return;
+        }
+        
+        this.skry();
         
         boolean[][] novyTvar = new boolean[novaVyska][novaSirka];
         
