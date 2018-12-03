@@ -159,7 +159,7 @@ public class Stvorec {
             Platno canvas = Platno.dajPlatno();
             canvas.draw(this, this.farba,
                         new Rectangle(this.lavyHornyX, this.lavyHornyY, this.strana, this.strana));
-            canvas.wait(10);
+            //canvas.wait(10);
         }
     }
 
