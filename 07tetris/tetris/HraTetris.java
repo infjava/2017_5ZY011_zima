@@ -8,6 +8,7 @@
 public class HraTetris {
     
     private Tetromino tetromino;
+    private int pocetTikov;
     
     /**
      * Constructor for objects of class HraTetris
@@ -18,6 +19,8 @@ public class HraTetris {
                                                          
         Manazer manazer = new Manazer();
         manazer.spravujObjekt(this);
+        
+        this.pocetTikov = 0;
     }
   
     public void posunHore() {
@@ -33,7 +36,10 @@ public class HraTetris {
     }
     
     public void tik() {
-        this.tetromino.posunDole();
+        if (this.pocetTikov % 4 == 0) {
+            this.tetromino.posunDole();
+        }
+        this.pocetTikov++;
     }
     
     public void aktivuj() {
