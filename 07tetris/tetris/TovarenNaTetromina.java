@@ -8,12 +8,14 @@ import java.util.Random;
  */
 public class TovarenNaTetromina {
     private Random random;
+    private Smetisko smetisko;
     
     /**
      * Constructor for objects of class TovarenNaTetromina
      */
-    public TovarenNaTetromina() {
+    public TovarenNaTetromina(Smetisko smetisko) {
         this.random = new Random();
+        this.smetisko = smetisko;
     }
     
     public Tetromino vytvorL() {
@@ -115,7 +117,7 @@ public class TovarenNaTetromina {
         
         int pocetOtoceni = this.random.nextInt(4);
         for (int i = 0; i < pocetOtoceni; i++) {
-            vytvorene.otoc();
+            vytvorene.otoc(this.smetisko);
         }
         
         return vytvorene;

@@ -63,15 +63,13 @@ public class Tetromino {
         this.zobraz();
     }  
     
-    public void otoc() {
+    public void otoc(Smetisko smetisko) {
         int novaSirka = this.tvar.length;
         int novaVyska = this.tvar[0].length;
         
         if (this.poziciaX + novaSirka > Displej.SIRKA || this.poziciaY + novaVyska > Displej.VYSKA) {
             return;
         }
-        
-        this.skry();
         
         boolean[][] novyTvar = new boolean[novaVyska][novaSirka];
         
@@ -84,7 +82,14 @@ public class Tetromino {
             }
         }
         
+        boolean[][] staryTvar = this.tvar;
+        
+        this.skry();
         this.tvar = novyTvar;
+        
+        if (smetisko.jeKolizia(this)) {
+            this.tvar = staryTvar;
+        }
         
         this.zobraz();
     }

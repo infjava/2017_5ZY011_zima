@@ -16,7 +16,7 @@ public class HraTetris {
      */
     public HraTetris() {
         this.smetisko = new Smetisko();
-        this.tovaren = new TovarenNaTetromina();
+        this.tovaren = new TovarenNaTetromina(this.smetisko);
         
         this.tetromino = this.tovaren.vytvorNahodne();
                                                          
@@ -27,7 +27,7 @@ public class HraTetris {
     }
   
     public void posunHore() {
-        this.tetromino.otoc();
+        this.tetromino.otoc(this.smetisko);
     }
     
     public void posunVlavo() {
