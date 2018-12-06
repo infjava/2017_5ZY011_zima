@@ -113,8 +113,19 @@ public class Tetromino {
         }
     }
     
-    public boolean jeNaDne() {
-        return this.poziciaY + this.tvar.length >= Displej.VYSKA;
+    public boolean jeNaDne(Smetisko smetisko) {
+        if (this.poziciaY + this.tvar.length >= Displej.VYSKA) {
+            return true;
+        }
+        
+        this.poziciaY++;
+        if (smetisko.jeKolizia(this)) {
+            this.poziciaY--;
+            return true;
+        }
+        
+        this.poziciaY--;
+        return false;
     }
     
     public boolean svietiNaPozicii(int x, int y) {

@@ -42,7 +42,7 @@ public class HraTetris {
         if (this.pocetTikov % 4 == 0) {
             this.tetromino.posunDole(this.smetisko);
             
-            if (this.tetromino.jeNaDne()) {
+            if (this.tetromino.jeNaDne(this.smetisko)) {
                 this.smetisko.pridajNaSmetisko(this.tetromino);
                 this.tetromino = this.tovaren.vytvorNahodne();
             }
