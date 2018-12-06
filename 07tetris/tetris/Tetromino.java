@@ -24,33 +24,42 @@ public class Tetromino {
         this.zobraz();
     }
     
-    public void posunVpravo() {
+    public void posunVpravo(Smetisko smetisko) {
         if (this.poziciaX + this.tvar[0].length == Displej.SIRKA) {
             return;
         }
         
         this.skry();
         this.poziciaX++;
+        if (smetisko.jeKolizia(this)) {
+            this.poziciaX--;
+        }
         this.zobraz();
     }
     
-    public void posunVlavo() {
+    public void posunVlavo(Smetisko smetisko) {
         if (this.poziciaX <= 0) {
             return;
         }
         
         this.skry();
         this.poziciaX--;
+        if (smetisko.jeKolizia(this)) {
+            this.poziciaX++;
+        }
         this.zobraz();
     }
     
-    public void posunDole() {
+    public void posunDole(Smetisko smetisko) {
         if (this.poziciaY + this.tvar.length >= Displej.VYSKA) {
             return;
         }   
         
         this.skry();
         this.poziciaY++;
+        if (smetisko.jeKolizia(this)) {
+            this.poziciaY--;
+        }
         this.zobraz();
     }  
     
@@ -106,5 +115,25 @@ public class Tetromino {
     
     public boolean jeNaDne() {
         return this.poziciaY + this.tvar.length >= Displej.VYSKA;
+    }
+    
+    public boolean svietiNaPozicii(int x, int y) {
+        if (x < this.poziciaX) {
+            return false;
+        }
+        
+        if (y < this.poziciaY) {
+            return false;
+        }
+        
+        if (x >= this.poziciaX + this.tvar[0].length) {
+            return false;
+        }
+        
+        if (y >= this.poziciaY + this.tvar.length) {
+            return false;
+        }
+        
+        return this.tvar[y - this.poziciaY][x - this.poziciaX];
     }
 }

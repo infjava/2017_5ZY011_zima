@@ -6,6 +6,7 @@
  * @version (a version number or a date)
  */
 public class HraTetris {
+    private Smetisko smetisko;
     private TovarenNaTetromina tovaren;
     private Tetromino tetromino;
     private int pocetTikov;
@@ -14,6 +15,7 @@ public class HraTetris {
      * Constructor for objects of class HraTetris
      */
     public HraTetris() {
+        this.smetisko = new Smetisko();
         this.tovaren = new TovarenNaTetromina();
         
         this.tetromino = this.tovaren.vytvorNahodne();
@@ -29,18 +31,19 @@ public class HraTetris {
     }
     
     public void posunVlavo() {
-        this.tetromino.posunVlavo();
+        this.tetromino.posunVlavo(this.smetisko);
     }
     
     public void posunVpravo() {
-        this.tetromino.posunVpravo();
+        this.tetromino.posunVpravo(this.smetisko);
     }
     
     public void tik() {
         if (this.pocetTikov % 4 == 0) {
-            this.tetromino.posunDole();
+            this.tetromino.posunDole(this.smetisko);
             
             if (this.tetromino.jeNaDne()) {
+                this.smetisko.pridajNaSmetisko(this.tetromino);
                 this.tetromino = this.tovaren.vytvorNahodne();
             }
         }
