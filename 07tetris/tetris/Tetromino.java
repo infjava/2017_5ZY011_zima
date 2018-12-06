@@ -94,6 +94,18 @@ public class Tetromino {
         this.zobraz();
     }
     
+    public void padni(Smetisko smetisko) {
+        this.skry();
+        
+        while (this.poziciaY + this.tvar.length <= Displej.VYSKA && !smetisko.jeKolizia(this)) {
+            this.poziciaY++;
+        }
+        
+        this.poziciaY--;
+        
+        this.zobraz();
+    }
+    
     private void zobraz() {
         Displej displej = Displej.getDisplej();
         

@@ -38,6 +38,10 @@ public class HraTetris {
         this.tetromino.posunVpravo(this.smetisko);
     }
     
+    public void posunDole() {
+        this.tetromino.padni(this.smetisko);
+    }
+    
     public void tik() {
         if (this.pocetTikov % 4 == 0) {
             this.tetromino.posunDole(this.smetisko);
