@@ -104,4 +104,7 @@ public class Tetromino {
         }
     }
     
+    public boolean jeNaDne() {
+        return this.poziciaY + this.tvar.length >= Displej.VYSKA;
+    }
 }

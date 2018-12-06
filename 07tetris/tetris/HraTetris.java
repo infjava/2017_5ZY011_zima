@@ -39,6 +39,10 @@ public class HraTetris {
     public void tik() {
         if (this.pocetTikov % 4 == 0) {
             this.tetromino.posunDole();
+            
+            if (this.tetromino.jeNaDne()) {
+                this.tetromino = this.tovaren.vytvorNahodne();
+            }
         }
         this.pocetTikov++;
     }
